@@ -3,7 +3,6 @@ var thoiGianCho = 0;
 var typeCar = '';
 var tongTien = 0;
 document.querySelector('#tinhTien').onclick = function () {
-    document.querySelector('#divThanhTien').style.display = 'none';
     var uberXPrice = [8000, 12000, 10000, 2000];
     var uberSUVPrice = [9000, 14000, 12000, 3000];
     var uberBlackPrice = [10000, 16000, 14000, 4000];
@@ -25,7 +24,7 @@ document.querySelector('#tinhTien').onclick = function () {
             tongTien = 1 * type[0] + thoiGianCho * type[3];
         }
         else if (soKM <= 20) {
-            tongTien = 1 * type[0] + (soKM - 1) * type[2] + thoiGianCho * type[3];
+            tongTien = 1 * type[0] + (soKM - 1) * type[1] + thoiGianCho * type[3];
         }
         else if (soKM >= 21) {
             tongTien = 1 * type[0] + 19 * type[1] + (soKM - 20) * type[2] + thoiGianCho * type[3];
@@ -35,6 +34,8 @@ document.querySelector('#tinhTien').onclick = function () {
         document.querySelector('#hoaDon').disabled = false;
 
     } else {
+        document.querySelector('#divThanhTien').style.display = 'none';
+        document.querySelector('#hoaDon').disabled = true;
         if (soKM <= 0 || !soKM.match(reg)) {
             document.querySelector('#soKM').focus();
         }
